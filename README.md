@@ -10,7 +10,7 @@ So far you cand find extensions for
 
 ⬜ Sequence
 
-⬜ URL
+✅ URL
 
 
 **Thanks for reading**
