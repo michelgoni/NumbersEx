@@ -7,4 +7,9 @@ final class NumbersExTests: XCTestCase {
         XCTAssertFalse(4.isPrime)
 
     }
+
+    func testURLExtension() {
+        let stringToUrl: URL = "http://www.test.com"
+        XCTAssertTrue(stringToUrl.scheme == "http")
+    }
 }
