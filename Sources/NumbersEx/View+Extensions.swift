@@ -10,15 +10,15 @@ import SwiftUI
 @available(iOS 13.0, *)
 extension View {
 
-    func initializeAlert(_ alertManager: AlertView) -> some View {
+    public func initializeAlert(_ alertManager: AlertView) -> some View {
        self.modifier(AlertViewModifier(alert: alertManager))
    }
 
-    func onAppearOnce(_ action: @escaping () -> ()) -> some View {
+    public func onAppearOnce(_ action: @escaping () -> ()) -> some View {
         modifier(OnAppearOnce(action: action))
     }
 
-    func show(_ condition: Bool) -> some View {
+    public func show(_ condition: Bool) -> some View {
         modifier(ShowModifier(active: condition))
     }
 
