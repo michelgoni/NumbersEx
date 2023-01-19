@@ -29,7 +29,7 @@ public class AlertView: ObservableObject {
 
     public init() {}
 
-    func showAlertView(title: String = .errorTitle,
+    public func showAlertView(title: String = .errorTitle,
                        message: String,
                        okCompletion: (buttonName: String, closure: (closure))) {
         self.title = title
@@ -38,7 +38,7 @@ public class AlertView: ObservableObject {
         self.showAlertView = true
     }
 
-    var getSystemAlert: Alert {
+    public var getSystemAlert: Alert {
 
         let primaryButton = Alert.Button.default(Text(okCompletion.buttonName)) {
             self.okCompletion.closure()
