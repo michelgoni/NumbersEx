@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 @available(iOS 13.0, *)
 
-private extension String {
+public extension String {
     static let errorTitle = "Error"
 }
 
@@ -20,7 +20,7 @@ public enum AlertAction {
 }
 @available(iOS 13.0, *)
 public class AlertView: ObservableObject {
-    typealias closure = () -> ()
+    public typealias closure = () -> ()
 
     @Published public var showAlertView = false
     private var title = ""
