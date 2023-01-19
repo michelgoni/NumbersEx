@@ -12,4 +12,18 @@ final class NumbersExTests: XCTestCase {
         let stringToUrl: URL = "http://www.test.com"
         XCTAssertTrue(stringToUrl.scheme == "http")
     }
+
+    func testAsyncSequenceExtension() async throws {
+    
+        let value =  await [1, 3, 8].asyncMap { number in
+            await mockData(number)
+        }
+        XCTAssertFalse(value.isEmpty)
+    }
+
+
+    private func mockData(_ number: Int) async  -> Data {
+
+        Data()
+    }
 }
