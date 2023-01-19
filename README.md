@@ -6,7 +6,7 @@ So far you cand find extensions for
 
 ⬜ Publisher
 
-⬜ View
+✅ View
 
 ✅  Sequence
 
