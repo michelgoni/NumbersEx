@@ -8,7 +8,7 @@ So far you cand find extensions for
 
 ⬜ View
 
-⬜ Sequence
+✅  Sequence
 
 ✅ URL
 
