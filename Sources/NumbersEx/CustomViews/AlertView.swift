@@ -27,6 +27,8 @@ public class AlertView: ObservableObject {
     private var message = ""
     private var okCompletion: (buttonName: String, closure: (closure)) = ("", {})
 
+    public init() {}
+
     func showAlertView(title: String = .errorTitle,
                        message: String,
                        okCompletion: (buttonName: String, closure: (closure))) {
