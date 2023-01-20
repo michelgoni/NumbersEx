@@ -7,7 +7,7 @@
 
 import Combine
 @available(iOS 13.0, *)
-protocol ViewModel: ObservableObject where ObjectWillChangePublisher.Output == Void {
+public protocol ViewModel: ObservableObject where ObjectWillChangePublisher.Output == Void {
     associatedtype Input
     associatedtype State
 
@@ -16,7 +16,7 @@ protocol ViewModel: ObservableObject where ObjectWillChangePublisher.Output == V
 }
 @available(iOS 13.0, *)
 @dynamicMemberLookup
-final class AnyViewModel<Input, State>: ViewModel {
+public final class AnyViewModel<Input, State>: ViewModel {
     private let wrappedObjectWillChange: () -> AnyPublisher<Void, Never>
     private let wrappedState: () -> State
     private let wrappedTrigger: (Input) -> Void
@@ -28,7 +28,7 @@ final class AnyViewModel<Input, State>: ViewModel {
     }
 }
 @available(iOS 13.0, *)
-extension AnyViewModel {
+public extension AnyViewModel {
 
     var objectWillChange: AnyPublisher<Void, Never> { wrappedObjectWillChange() }
 
