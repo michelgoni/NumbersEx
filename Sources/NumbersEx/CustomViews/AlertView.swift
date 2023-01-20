@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 @available(iOS 13.0, *)
 
-private extension String {
+public extension String {
     static let errorTitle = "Error"
 }
 
@@ -20,14 +20,16 @@ public enum AlertAction {
 }
 @available(iOS 13.0, *)
 public class AlertView: ObservableObject {
-    typealias closure = () -> ()
+    public typealias closure = () -> ()
 
     @Published public var showAlertView = false
     private var title = ""
     private var message = ""
     private var okCompletion: (buttonName: String, closure: (closure)) = ("", {})
 
-    func showAlertView(title: String = .errorTitle,
+    public init() {}
+
+    public func showAlertView(title: String = .errorTitle,
                        message: String,
                        okCompletion: (buttonName: String, closure: (closure))) {
         self.title = title
@@ -36,7 +38,7 @@ public class AlertView: ObservableObject {
         self.showAlertView = true
     }
 
-    var getSystemAlert: Alert {
+    public var getSystemAlert: Alert {
 
         let primaryButton = Alert.Button.default(Text(okCompletion.buttonName)) {
             self.okCompletion.closure()

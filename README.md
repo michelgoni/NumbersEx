@@ -4,9 +4,9 @@ So far you cand find extensions for
 
 ✅ Integer
 
-⬜ Publisher
+✅ Publisher
 
-⬜ View
+✅ View
 
 ✅  Sequence
 
