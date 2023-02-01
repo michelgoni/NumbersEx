@@ -7,23 +7,40 @@
 
 import Foundation
 
-extension Int {
+public extension Int {
 
     /**
-        Check if the number is prime
+     Check if the number is prime
 
-        - Returns: a boolean indicating thet the humber is (or not) prime
-        */
+     - Returns: A boolean indicating thet the humber is (or not) prime
+     */
 
-    public var isPrime: Bool {
-      guard self >= 2 else { return false }
+    var isPrime: Bool {
+        guard self >= 2 else { return false }
 
-      for i in 2..<self {
-          if self % i == .zero {
-          return false
+        for i in 2..<self {
+            if self % i == .zero {
+                return false
+            }
         }
-      }
-      return true
+        return true
+    }
+
+    /**
+     Check if the number is even (divisible by 2)
+
+     - Returns: A boolean indicating thet the humber is (or not) even
+     */
+    var isEven: Bool {
+        self % 2 == .zero
+    }
+    /**
+     Check if the number is odd (not divisible by 2)
+
+     - Returns: A boolean indicating thet the humber is (or not) odd
+     */
+    var isOdd: Bool {
+        self % 2 != .zero
     }
 }
 

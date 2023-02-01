@@ -9,7 +9,9 @@ final class NumbersExTests: XCTestCase {
     func testIntExtension() throws {
         XCTAssertTrue(2.isPrime)
         XCTAssertFalse(4.isPrime)
-
+        XCTAssertFalse(2.isOdd)
+        XCTAssertTrue(2.isEven)
+        XCTAssertTrue(3.isOdd)
     }
 
     func testURLExtension() {
