@@ -10,7 +10,11 @@ So far you cand find extensions for
 
 ✅  Sequence
 
-✅ URL
+✅  DispatchQue
+
+✅  Color
+
+✅  URL
 
 
 **Thanks for reading**
