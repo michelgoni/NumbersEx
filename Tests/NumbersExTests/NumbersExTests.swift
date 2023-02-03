@@ -2,7 +2,7 @@ import XCTest
 import Combine
 @testable import NumbersEx
 @available(iOS 13.0, *)
-final class NumbersExTests: XCTestCase {
+final class NumbersExTests: XCTestCase, AsyncHandler {
 
     lazy var cancellables = Set<AnyCancellable>()
 
@@ -30,7 +30,10 @@ final class NumbersExTests: XCTestCase {
     func testJust() throws {
         let mockClass = MockClass()
         mockClass.returnValue = .just("test")
-        mockClass.returnValue.sink { _ in
+        mockClass.returnValue
+            .subscribe(on: global)
+            .receive(on: main)
+            .sink { _ in
 
         } receiveValue: { value in
             XCTAssertTrue(value == "test")
@@ -41,7 +44,10 @@ final class NumbersExTests: XCTestCase {
         let mockClass = MockClass()
         let expectation = expectation(description: "Extepcation for testError")
         mockClass.returnValue = .fail(NSError())
-        mockClass.returnValue.sink { completion in
+        mockClass.returnValue
+            .subscribe(on: global)
+            .receive(on: main)
+            .sink { completion in
             if case .failure = completion {
                 expectation.fulfill()
             }
@@ -53,7 +59,6 @@ final class NumbersExTests: XCTestCase {
 
     }
 
-
     private func mockData(_ number: Int) async  -> Data {
 
         Data()
@@ -64,4 +69,30 @@ final class NumbersExTests: XCTestCase {
 class MockClass {
 
     var returnValue: AnyPublisher<String, Error>!
+}
+
+class MockViewModel: ViewModel {
+
+    @Published var state = State()
+}
+
+extension MockViewModel {
+
+    enum Input {
+        case list
+    }
+
+    struct State {
+        var value = 0
+    }
+    
+}
+
+extension MockViewModel {
+    func trigger(_ input: Input) {
+        switch input {
+        case .list:
+            self.state.value += 1
+        }
+    }
 }
