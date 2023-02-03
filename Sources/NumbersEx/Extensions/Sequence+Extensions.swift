@@ -26,7 +26,7 @@ extension Sequence {
 
 
 @available(iOS 13.0, *)
-extension Publisher {
+public extension Publisher {
     func asyncMap<T>(
         _ transform: @escaping (Output) async throws -> T
     ) -> Publishers.FlatMap<Future<T, Error>, Self> {
