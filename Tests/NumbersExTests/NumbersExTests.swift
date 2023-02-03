@@ -59,6 +59,16 @@ final class NumbersExTests: XCTestCase, AsyncHandler {
 
     }
 
+    func testExecute() {
+        let mockRepository = Mockrepository()
+        let mockUseCase = MockUseCase(repository: mockRepository)
+        let viewModel = MockViewModel(mockUseCase: mockUseCase)
+
+        viewModel.trigger(.list)
+
+        XCTAssertNotNil(viewModel.state.value)
+    }
+
     private func mockData(_ number: Int) async  -> Data {
 
         Data()
@@ -74,6 +84,11 @@ class MockClass {
 class MockViewModel: ViewModel {
 
     @Published var state = State()
+    var mockUseCase: MockUseCase?
+
+    init(mockUseCase: MockUseCase?) {
+        self.mockUseCase = mockUseCase
+    }
 }
 
 extension MockViewModel {
@@ -83,7 +98,7 @@ extension MockViewModel {
     }
 
     struct State {
-        var value = 0
+        var value: Int?
     }
     
 }
@@ -92,7 +107,31 @@ extension MockViewModel {
     func trigger(_ input: Input) {
         switch input {
         case .list:
-            self.state.value += 1
+            self.state.value = mockUseCase?.execute()
         }
+    }
+}
+
+class MockUseCase: UnwrappedUseCase {
+    var repository: Mockrepository?
+
+    init(repository: Mockrepository?) {
+        self.repository = repository
+    }
+
+    func execute () -> Int {
+        do {
+            return try execute(repository?.retrieveNumber())
+        }catch {
+            return .zero
+        }
+
+    }
+}
+
+class Mockrepository {
+
+    func retrieveNumber() -> Int {
+        2
     }
 }
