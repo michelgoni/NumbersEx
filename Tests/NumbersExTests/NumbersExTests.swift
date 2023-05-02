@@ -68,6 +68,19 @@ final class NumbersExTests: XCTestCase, AsyncHandler {
 
         XCTAssertNotNil(viewModel.state.value)
     }
+    
+    func testDateExtension() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        let someDateTime = formatter.date(from: "05/02/2023")
+        if let dateTotest = try? XCTUnwrap(someDateTime?.convertToMonthYearFormat()) {
+            XCTAssertEqual(dateTotest, "05/02/2023")
+        } else {
+            XCTFail("someDateTime should contain a value at least")
+        }
+       
+        
+    }
 
     private func mockData(_ number: Int) async  -> Data {
 
