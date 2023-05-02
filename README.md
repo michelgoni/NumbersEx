@@ -16,5 +16,7 @@ So far you cand find extensions for
 
 ✅  URL
 
+✅  Date
+
 
 **Thanks for reading**
