@@ -56,4 +56,8 @@ public extension View {
     func scrollable(_ axis: Axis.Set = .vertical, showIndicators: Bool = true) -> ScrollView<Self> {
         ScrollView(axis, showsIndicators: showIndicators) { self }
     }
+    
+    func show(_ condition: Bool) -> some View {
+        modifier(ShowModifier(active: condition))
+    }
 }
