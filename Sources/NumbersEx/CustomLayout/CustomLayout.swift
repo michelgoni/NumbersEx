@@ -61,6 +61,9 @@ public struct CustomDimensValues {
 @available(iOS 13.0, *)
 public struct ResponsiveView<Content: View>: View {
     public var content: (CustomLayoutProperties) -> Content
+    public init(content: @escaping (CustomLayoutProperties) -> Content) {
+        self.content = content
+    }
     public var body: some View {
         GeometryReader { geo in
             let height = geo.size.height
