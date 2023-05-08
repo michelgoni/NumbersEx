@@ -127,7 +127,7 @@ public struct CustomFontSize {
     }
 }
 
-struct LayoutProperties {
+public struct LayoutProperties {
     var landscape:Bool
     var dimensValues:CustomDimensValues
     var customFontSize:CustomFontSize
