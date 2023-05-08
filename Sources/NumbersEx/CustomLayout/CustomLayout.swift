@@ -9,20 +9,20 @@ import Foundation
 import SwiftUI
 
 public struct CustomLayoutProperties {
-    var landscape: Bool
-    var dimensValues: CustomDimensValues
-    var customFontSize: CustomFontSize
-    var height: CGFloat
-    var width: CGFloat
+    public var landscape: Bool
+    public var dimensValues: CustomDimensValues
+    public var customFontSize: CustomFontSize
+    public var height: CGFloat
+    public var width: CGFloat
 }
 
 public struct CustomDimensValues {
-    let small: CGFloat
-    let smallMedium: CGFloat
-    let medium: CGFloat
-    let mediumLarge: CGFloat
-    let large: CGFloat
-    let extraLarge: CGFloat
+    public let small: CGFloat
+    public let smallMedium: CGFloat
+    public let medium: CGFloat
+    public let mediumLarge: CGFloat
+    public let large: CGFloat
+    public let extraLarge: CGFloat
     public init(height: CGFloat, width: CGFloat) {
         let widthToCalculate = height<width ? height : width
         switch widthToCalculate {
@@ -85,12 +85,12 @@ public struct ResponsiveView<Content: View>: View {
 }
 
 public struct CustomFontSize {
-    let small: CGFloat
-    let smallMedium: CGFloat
-    let medium: CGFloat
-    let mediumLarge: CGFloat
-    let large: CGFloat
-    let extraLarge: CGFloat
+    public let small: CGFloat
+    public let smallMedium: CGFloat
+    public let medium: CGFloat
+    public let mediumLarge: CGFloat
+    public let large: CGFloat
+    public let extraLarge: CGFloat
     
     public init(height: CGFloat, width: CGFloat) {
         let widthToCalculate = height<width ? height : width
