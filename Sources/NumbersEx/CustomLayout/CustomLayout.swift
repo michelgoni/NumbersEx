@@ -126,11 +126,3 @@ public struct CustomFontSize {
         }
     }
 }
-
-public struct LayoutProperties {
-    var landscape:Bool
-    var dimensValues:CustomDimensValues
-    var customFontSize:CustomFontSize
-    var height:CGFloat
-    var width:CGFloat
-}
