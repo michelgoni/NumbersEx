@@ -14,6 +14,14 @@ public struct CustomLayoutProperties {
     public var customFontSize: CustomFontSize
     public var height: CGFloat
     public var width: CGFloat
+    
+    public init(landscape: Bool, dimensValues: CustomDimensValues, customFontSize: CustomFontSize, height: CGFloat, width: CGFloat) {
+        self.landscape = landscape
+        self.dimensValues = dimensValues
+        self.customFontSize = customFontSize
+        self.height = height
+        self.width = width
+    }
 }
 
 public struct CustomDimensValues {
@@ -126,3 +134,4 @@ public struct CustomFontSize {
         }
     }
 }
+
