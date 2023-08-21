@@ -13,8 +13,6 @@ public protocol ViewModelObservable: ObservableObject {
     associatedtype Datasource: Equatable
     associatedtype Destination: Equatable
     
-    var dataSource: Datasource { get }
-    
     func trigger(_ input: Input)
     
 }
